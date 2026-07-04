@@ -15,6 +15,8 @@ const SUITS = [
     bodyColor: '#cc0000',
     legColor: '#0044cc',
     actionImage: '/images/tobey-action.jpg',
+    bgGif: '/images/tobey-bg.gif',
+    refImage: '/images/tobey-ref.jpg',
   },
   {
     name: 'Andrew Garfield',
@@ -26,6 +28,8 @@ const SUITS = [
     bodyColor: '#8b0000',
     legColor: '#00008b',
     actionImage: '/images/andrew-action.jpg',
+    bgGif: '/images/andrew-bg.gif',
+    refImage: '/images/andrew-ref.jpg',
   },
   {
     name: 'Tom Holland',
@@ -37,6 +41,8 @@ const SUITS = [
     bodyColor: '#cc0000',
     legColor: '#1a1a2e',
     actionImage: '/images/tom-action.jpg',
+    bgGif: '/images/tom-bg.gif',
+    refImage: '/images/tom-ref.jpg',
   },
 ]
 
@@ -75,12 +81,22 @@ function App() {
         {activeSection === 'hero' && (
           <section className="hero-section">
             <div className="scene-container">
+              <div className="scene-bg">
+                <img src={suit.bgGif} alt="" className="scene-bg-gif" />
+              </div>
               <SpiderScene suit={suit} />
             </div>
 
             <div className="suit-selector">
-              <h2 className="suit-title">{SUITS[activeSuit].name}</h2>
-              <p className="suit-era">{SUITS[activeSuit].era}</p>
+              <div className="suit-info">
+                <div className="suit-ref">
+                  <img src={suit.refImage} alt={suit.name} />
+                </div>
+                <div className="suit-details">
+                  <h2 className="suit-title">{SUITS[activeSuit].name}</h2>
+                  <p className="suit-era">{SUITS[activeSuit].era}</p>
+                </div>
+              </div>
               <div className="suit-dots">
                 {SUITS.map((s, i) => (
                   <button
