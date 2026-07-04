@@ -334,6 +334,7 @@
   inset: 0;
   z-index: 50;
   overflow: hidden;
+  background: #0a0015;
 }
 
 .pano-container {
@@ -346,6 +347,17 @@
   cursor: grabbing;
 }
 
+.sv-bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 .sv-intro {
   position: fixed;
   inset: 0;
@@ -353,7 +365,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0a0a0f;
+  background: #0a0015;
   animation: svIntroFade 4s ease forwards;
   pointer-events: none;
 }
@@ -368,16 +380,26 @@
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle, rgba(204,0,0,0.15) 1px, transparent 1px),
-    radial-gradient(circle, rgba(0,68,204,0.15) 1px, transparent 1px);
-  background-size: 30px 30px, 30px 30px;
-  background-position: 0 0, 15px 15px;
+    radial-gradient(circle, rgba(255,0,85,0.2) 1px, transparent 1px),
+    radial-gradient(circle, rgba(0,68,255,0.2) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,102,0,0.2) 1px, transparent 1px);
+  background-size: 30px 30px, 30px 30px, 30px 30px;
+  background-position: 0 0, 10px 10px, 20px 20px;
   animation: svDotsPulse 2s ease infinite;
 }
 
 @keyframes svDotsPulse {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
+}
+
+.sv-particles-rain {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px;
 }
 
 .sv-title-container {
@@ -388,8 +410,8 @@
 }
 
 @keyframes svTitleIn {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
+  from { opacity: 0; transform: scale(0.8) rotate(-5deg); }
+  to { opacity: 1; transform: scale(1) rotate(0deg); }
 }
 
 .sv-title {
@@ -405,35 +427,51 @@
 }
 
 .sv-title-spider {
-  background: linear-gradient(90deg, #cc0000, #ff4444);
+  background: linear-gradient(90deg, #ff0055, #ff4444, #ff6600);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: none;
-  filter: drop-shadow(0 0 30px rgba(204,0,0,0.5));
+  filter: drop-shadow(0 0 30px rgba(255,0,85,0.5)) drop-shadow(0 0 60px rgba(255,0,85,0.3));
 }
 
 .sv-title-verse {
-  background: linear-gradient(90deg, #0044cc, #4488ff);
+  background: linear-gradient(90deg, #0044ff, #cc00ff, #ff0055);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: none;
-  filter: drop-shadow(0 0 30px rgba(0,68,204,0.5));
+  filter: drop-shadow(0 0 30px rgba(0,68,255,0.5)) drop-shadow(0 0 60px rgba(204,0,255,0.3));
 }
 
-.sv-subtitle {
+.sv-movie-titles {
   margin-top: 1rem;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
   font-family: 'Roboto', sans-serif;
-  font-size: 1.2rem;
-  letter-spacing: 6px;
+  font-size: 0.9rem;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+}
+
+.sv-movie-tag {
+  color: rgba(255,255,255,0.4);
+  animation: svTagPulse 2s ease infinite;
+}
+
+.sv-movie-dot {
+  color: rgba(255,0,85,0.6);
+  font-size: 1.2rem;
+}
+
+@keyframes svTagPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
 }
 
 .sv-intro-flash {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 70%);
-  animation: svFlash 2s ease 1s infinite;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15), transparent 70%);
+  animation: svFlash 1.5s ease 0.5s infinite;
   pointer-events: none;
 }
 
@@ -479,7 +517,7 @@
   width: 200px;
   height: 2px;
   margin: 1rem auto;
-  background: linear-gradient(90deg, transparent, #cc0000, #0044cc, transparent);
+  background: linear-gradient(90deg, transparent, #ff0055, #0044ff, transparent);
 }
 
 .sv-ending-text {
@@ -488,10 +526,10 @@
   font-weight: 900;
   letter-spacing: 12px;
   text-transform: uppercase;
-  background: linear-gradient(135deg, #cc0000, #ff4444, #0044cc);
+  background: linear-gradient(135deg, #ff0055, #ff6600, #cc00ff, #0044ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 40px rgba(204,0,0,0.3));
+  filter: drop-shadow(0 0 40px rgba(255,0,85,0.3));
 }
 
 .sv-ending-sub {
@@ -500,6 +538,23 @@
   letter-spacing: 4px;
   color: rgba(255,255,255,0.4);
   margin-top: 1.5rem;
+}
+
+.sv-ending-movies {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+}
+
+.sv-ending-dot {
+  color: rgba(255,0,85,0.4);
 }
 
 .sv-hint {
@@ -544,8 +599,8 @@
 }
 
 .sv-end-btn:hover {
-  background: rgba(204,0,0,0.2);
-  border-color: #cc0000;
+  background: rgba(255,0,85,0.2);
+  border-color: #ff0055;
   color: #fff;
 }
 
@@ -557,6 +612,20 @@
   .sv-ending-text {
     font-size: 2.5rem;
     letter-spacing: 8px;
+  }
+  .sv-movie-titles {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .sv-movie-dot {
+    display: none;
+  }
+  .sv-ending-movies {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .sv-ending-dot {
+    display: none;
   }
   .gallery-grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

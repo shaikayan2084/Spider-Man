@@ -228,14 +228,22 @@ export default function SpiderScene({ suit }) {
 
   useEffect(() => {
     if (!figureRef.current) return
+
+    const loader = new THREE.TextureLoader()
+    const texture = loader.load(suit.actionImage)
+
     figureRef.current.traverse((child) => {
       if (child.isMesh && child.material) {
         if (child.geometry.type === 'SphereGeometry' && child.position.y > 1.7) {
-          child.material.color.set(suit.primary)
+          child.material.map = texture
+          child.material.color.set('#ffffff')
+          child.material.needsUpdate = true
         } else if (child.geometry.type === 'CylinderGeometry') {
           const y = child.position.y
           if (y > 1.0) {
-            child.material.color.set(suit.bodyColor)
+            child.material.map = texture
+            child.material.color.set('#ffffff')
+            child.material.needsUpdate = true
           } else if (y > 0.4) {
             child.material.color.set(suit.secondary)
           } else {

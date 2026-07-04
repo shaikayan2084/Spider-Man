@@ -14,6 +14,7 @@ const SUITS = [
     accent: '#ffcc00',
     bodyColor: '#cc0000',
     legColor: '#0044cc',
+    actionImage: '/images/tobey-action.jpg',
   },
   {
     name: 'Andrew Garfield',
@@ -24,6 +25,7 @@ const SUITS = [
     accent: '#ff6600',
     bodyColor: '#8b0000',
     legColor: '#00008b',
+    actionImage: '/images/andrew-action.jpg',
   },
   {
     name: 'Tom Holland',
@@ -34,6 +36,7 @@ const SUITS = [
     accent: '#ffd700',
     bodyColor: '#cc0000',
     legColor: '#1a1a2e',
+    actionImage: '/images/tom-action.jpg',
   },
 ]
 
