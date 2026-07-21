@@ -1,42 +1,112 @@
-.app {
-  min-height: 100vh;
-  background: #0a0a0f;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.navbar {
+.app {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 0%, #0f0f1a 0%, #08080f 50%, #05050a 100%);
+  color: #fff;
+  position: relative;
+}
+
+/* Spider web corner decorations */
+.app::before {
+  content: '';
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2rem;
-  background: rgba(10, 10, 15, 0.7);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  width: 200px;
+  height: 200px;
+  z-index: 998;
+  pointer-events: none;
+  background:
+    /* Radial web strands from top-left */
+    conic-gradient(from 0deg,
+      transparent 0deg,
+      rgba(30,144,255,0.08) 0.5deg, transparent 1deg,
+      transparent 10deg,
+      rgba(255,0,0,0.06) 10.5deg, transparent 11deg,
+      transparent 20deg,
+      rgba(30,144,255,0.08) 20.5deg, transparent 21deg,
+      transparent 30deg,
+      rgba(255,0,0,0.06) 30.5deg, transparent 31deg,
+      transparent 40deg,
+      rgba(30,144,255,0.08) 40.5deg, transparent 41deg,
+      transparent 50deg,
+      rgba(255,0,0,0.06) 50.5deg, transparent 51deg,
+      transparent 60deg,
+      rgba(30,144,255,0.08) 60.5deg, transparent 61deg,
+      transparent 70deg,
+      rgba(255,0,0,0.06) 70.5deg, transparent 71deg,
+      transparent 80deg,
+      rgba(30,144,255,0.08) 80.5deg, transparent 81deg,
+      transparent 90deg,
+      rgba(255,0,0,0.06) 90.5deg, transparent 91deg,
+      transparent 100deg,
+      rgba(30,144,255,0.08) 100.5deg, transparent 101deg,
+      transparent 110deg,
+      rgba(255,0,0,0.06) 110.5deg, transparent 111deg,
+      transparent 120deg,
+      rgba(30,144,255,0.08) 120.5deg, transparent 121deg,
+      transparent)
+    /* Curved web lines */
+    , radial-gradient(circle at 0 0, transparent 40%, rgba(30,144,255,0.03) 41%, transparent 42%)
+    , radial-gradient(circle at 0 0, transparent 55%, rgba(255,0,0,0.03) 56%, transparent 57%)
+    , radial-gradient(circle at 0 0, transparent 70%, rgba(30,144,255,0.02) 71%, transparent 72%);
 }
 
-.nav-brand {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #ff0055, #cc00ff, #0044ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
-  letter-spacing: 4px;
+.app::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  z-index: 999;
+  pointer-events: none;
+  background:
+    conic-gradient(from 180deg,
+      transparent 0deg,
+      rgba(30,144,255,0.08) 0.5deg, transparent 1deg,
+      transparent 10deg,
+      rgba(255,0,0,0.06) 10.5deg, transparent 11deg,
+      transparent 20deg,
+      rgba(30,144,255,0.08) 20.5deg, transparent 21deg,
+      transparent 30deg,
+      rgba(255,0,0,0.06) 30.5deg, transparent 31deg,
+      transparent 40deg,
+      rgba(30,144,255,0.08) 40.5deg, transparent 41deg,
+      transparent 50deg,
+      rgba(255,0,0,0.06) 50.5deg, transparent 51deg,
+      transparent 60deg,
+      rgba(30,144,255,0.08) 60.5deg, transparent 61deg,
+      transparent 70deg,
+      rgba(255,0,0,0.06) 70.5deg, transparent 71deg,
+      transparent 80deg,
+      rgba(30,144,255,0.08) 80.5deg, transparent 81deg,
+      transparent 90deg,
+      rgba(255,0,0,0.06) 90.5deg, transparent 91deg,
+      transparent)
+    , radial-gradient(circle at 100% 100%, transparent 40%, rgba(30,144,255,0.03) 41%, transparent 42%)
+    , radial-gradient(circle at 100% 100%, transparent 55%, rgba(255,0,0,0.03) 56%, transparent 57%)
+    , radial-gradient(circle at 100% 100%, transparent 70%, rgba(30,144,255,0.02) 71%, transparent 72%);
+}
+
+.main-content {
+  position: relative;
+  z-index: 1;
 }
 
 .spiderverse-section {
   position: fixed;
   inset: 0;
   z-index: 50;
-  overflow: hidden;
-  background: #000;
+  padding-top: 0;
 }
 
+/* Spider-Verse 360 styles (imported from component) */
 .pano-container {
   width: 100vw;
   height: 100vh;
@@ -299,45 +369,281 @@
   bottom: 30px;
   right: 30px;
   z-index: 100;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.4);
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
+  padding: 10px 22px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 0.8rem;
-  font-family: 'Roboto', sans-serif;
-  letter-spacing: 1px;
-  transition: all 0.3s;
+  font-size: 0.75rem;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.sv-end-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 40%, transparent 60%, rgba(0,0,0,0.1) 100%);
+  pointer-events: none;
 }
 
 .sv-end-btn:hover {
-  background: rgba(255,0,85,0.2);
-  border-color: #ff0055;
   color: #fff;
+  border-color: #ff0055;
+  background: rgba(255,0,85,0.08);
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 16px rgba(255,0,85,0.25),
+    0 1px 0 rgba(255,0,85,0.15) inset,
+    0 -2px 6px rgba(255,0,85,0.08) inset,
+    0 0 30px rgba(255,0,85,0.1);
+}
+
+/* Actor panel styles */
+.sv-actors-nav {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 150;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.sv-actor-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 8px 16px 8px 12px;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  cursor: pointer;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.7rem;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.sv-actor-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 40%, transparent 60%);
+  pointer-events: none;
+}
+
+.sv-actor-btn:hover {
+  border-color: var(--accent);
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 12px color-mix(in srgb, var(--accent) 20%, transparent),
+    0 1px 0 color-mix(in srgb, var(--accent) 15%, transparent) inset;
+}
+
+.sv-actor-btn.active {
+  border-color: var(--accent);
+  color: #fff;
+  background: rgba(0,0,0,0.7);
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 16px color-mix(in srgb, var(--accent) 30%, transparent),
+    0 1px 0 color-mix(in srgb, var(--accent) 20%, transparent) inset,
+    0 0 30px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.sv-actor-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sv-actor-label {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .sv-actor-label { display: inline; }
+}
+
+.sv-actor-panel {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  z-index: 160;
+  width: 380px;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 120px);
+  border-radius: 16px;
+  overflow: hidden;
+  animation: svPanelIn 0.4s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+@keyframes svPanelIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.sv-actor-panel-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+}
+
+.sv-actor-panel-content {
+  position: relative;
+  padding: 1.5rem;
+  background: rgba(10, 10, 20, 0.92);
+  backdrop-filter: blur(16px);
+  overflow-y: auto;
+  max-height: calc(100vh - 120px);
+}
+
+.sv-actor-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.sv-actor-close:hover { color: #fff; }
+
+.sv-actor-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sv-actor-headshot {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+
+.sv-actor-headshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sv-actor-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.sv-actor-era {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin: 0.3rem 0 0;
+  padding-left: 0.5rem;
+  border-left: 2px solid;
+}
+
+.sv-actor-desc {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 1.2rem;
+  padding: 0.8rem;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+}
+
+.sv-actor-subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+  margin: 0 0 0.6rem;
+}
+
+.sv-actor-movies { margin-bottom: 1.2rem; }
+
+.sv-actor-movie-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  padding: 0.3rem 0;
+}
+
+.sv-movie-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sv-traits-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.sv-trait-tag {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.5);
+  padding: 0.3rem 0.7rem;
+  border: 1px solid;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.03);
 }
 
 @media (max-width: 768px) {
-  .sv-title {
-    font-size: 3rem;
-    letter-spacing: 4px;
-  }
-  .sv-ending-text {
-    font-size: 2.5rem;
-    letter-spacing: 8px;
-  }
-  .sv-movie-titles {
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-  .sv-movie-dot {
-    display: none;
-  }
-  .sv-ending-movies {
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-  .sv-ending-dot {
-    display: none;
-  }
+  .sv-title { font-size: 3rem; letter-spacing: 4px; }
+  .sv-ending-text { font-size: 2.5rem; letter-spacing: 8px; }
+  .sv-movie-titles, .sv-ending-movies { flex-direction: column; gap: 0.3rem; }
+  .sv-movie-dot, .sv-ending-dot { display: none; }
+  .sv-actor-panel { right: 10px; left: 10px; width: auto; max-width: none; }
+  .sv-actors-nav { gap: 0.4rem; }
+  .sv-actor-btn { padding: 0.4rem 0.6rem; }
 }
+
+

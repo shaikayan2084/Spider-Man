@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitScout — your GitHub, rated out of 99</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Oswald:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">GitScout</span>
+      </div>
+      <p class="subtitle">your GitHub, rated out of 99</p>
+    </header>
+
+    <div class="hero">
+      <div class="hero-badge">GITHUB × SCOUT</div>
+      <h1>GET SCOUTED.</h1>
+      <p class="hero-desc">Your GitHub stats, turned into a player card rated out of 99.</p>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="try torvalds · sindresorhus · or your own" />
+        <button id="searchBtn">SCOUT</button>
+      </div>
+      <div class="search-stats">
+        <span id="totalScouted">0</span> profiles scouted
+      </div>
+    </div>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Scouting GitHub profile...</p>
+    </div>
+
+    <div id="error" class="error hidden">
+      <p>Profile not found. Try another username.</p>
+    </div>
+
+    <div id="cardContainer" class="card-container hidden">
+      <div class="card" id="playerCard">
+        <div class="card-bg">
+          <div class="card-pattern"></div>
+        </div>
+        <div class="card-content">
+          <div class="card-badge" id="cardBadge">99</div>
+          <div class="card-header">
+            <div class="card-avatar" id="cardAvatar">
+              <img src="" alt="avatar" />
+            </div>
+            <div class="card-rating">
+              <span class="rating-number" id="overallRating">99</span>
+              <span class="rating-label">OVR</span>
+            </div>
+          </div>
+          <div class="card-position" id="cardPosition">ST</div>
+          <div class="card-info">
+            <div class="card-flags" id="cardFlags"></div>
+            <h2 class="card-name" id="cardName">USERNAME</h2>
+            <p class="card-handle" id="cardHandle">@username</p>
+          </div>
+          <div class="card-stats" id="cardStats">
+            <div class="stat">
+              <span class="stat-label">PAC</span>
+              <div class="stat-bar-bg"><div class="stat-bar-fill" id="statPac"></div></div>
+              <span class="stat-value" id="statPacVal">99</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">DRI</span>
+              <div class="stat-bar-bg"><div class="stat-bar-fill" id="statDri"></div></div>
+              <span class="stat-value" id="statDriVal">99</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">SHO</span>
+              <div class="stat-bar-bg"><div class="stat-bar-fill" id="statSho"></div></div>
+              <span class="stat-value" id="statShoVal">99</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">DEF</span>
+              <div class="stat-bar-bg"><div class="stat-bar-fill" id="statDef"></div></div>
+              <span class="stat-value" id="statDefVal">99</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">PAS</span>
+              <div class="stat-bar-bg"><div class="stat-bar-fill" id="statPas"></div></div>
+              <span class="stat-value" id="statPasVal">99</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">PHY</span>
+              <div class="stat-bar-bg"><div class="stat-bar-fill" id="statPhy"></div></div>
+              <span class="stat-value" id="statPhyVal">99</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="footer-brand">GITSCOUT.COM</span>
+            <span class="footer-handle" id="footerHandle">@username</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured">
+      <h2>Featured Scouts</h2>
+      <div class="featured-grid" id="featuredGrid">
+        <div class="featured-card" data-user="torvalds">
+          <div class="featured-badge">99</div>
+          <img src="https://avatars.githubusercontent.com/u/1024025?s=120" alt="torvalds" />
+          <div class="featured-info">
+            <strong>torvalds</strong>
+            <span>C, Linux</span>
+          </div>
+        </div>
+        <div class="featured-card" data-user="sindresorhus">
+          <div class="featured-badge">96</div>
+          <img src="https://avatars.githubusercontent.com/u/170270?s=120" alt="sindresorhus" />
+          <div class="featured-info">
+            <strong>sindresorhus</strong>
+            <span>JavaScript, Node.js</span>
+          </div>
+        </div>
+        <div class="featured-card" data-user="addyosmani">
+          <div class="featured-badge">94</div>
+          <img src="https://avatars.githubusercontent.com/u/110953?s=120" alt="addyosmani" />
+          <div class="featured-info">
+            <strong>addyosmani</strong>
+            <span>Chrome, Web Perf</span>
+          </div>
+        </div>
+        <div class="featured-card" data-user="gaearon">
+          <div class="featured-badge">93</div>
+          <img src="https://avatars.githubusercontent.com/u/810438?s=120" alt="gaearon" />
+          <div class="featured-info">
+            <strong>gaearon</strong>
+            <span>React, Redux</span>
+          </div>
+        </div>
+        <div class="featured-card" data-user="ThePrimeagen">
+          <div class="featured-badge">92</div>
+          <img src="https://avatars.githubusercontent.com/u/4458174?s=120" alt="ThePrimeagen" />
+          <div class="featured-info">
+            <strong>ThePrimeagen</strong>
+            <span>Rust, Vim, Streaming</span>
+          </div>
+        </div>
+        <div class="featured-card" data-user="yyx990803">
+          <div class="featured-badge">91</div>
+          <img src="https://avatars.githubusercontent.com/u/499550?s=120" alt="yyx990803" />
+          <div class="featured-info">
+            <strong>yyx990803</strong>
+            <span>Vue, Vite</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Built with ❤️ using GitHub API</p>
+    </footer>
+  </div>
+
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

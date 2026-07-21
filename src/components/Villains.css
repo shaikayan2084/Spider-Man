@@ -1,0 +1,115 @@
+.villains-section {
+  height: 100vh;
+  padding: 76px 2rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.villains-container {
+  max-width: 1100px;
+  width: 100%;
+}
+
+.villains-heading {
+  font-family: 'Bangers', cursive;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-shadow: 3px 3px 0px #7A000F, 0 0 14px rgba(192,0,26,0.65);
+  margin-bottom: 0.3rem;
+}
+
+.villains-sub {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.villains-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.villain-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.2rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.villain-card:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: var(--v-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.villain-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Bangers', cursive;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.villain-body {
+  flex: 1;
+}
+
+.villain-name {
+  font-family: 'Bangers', cursive;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.2rem;
+}
+
+.villain-actor {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: var(--v-color);
+  margin-right: 0.8rem;
+}
+
+.villain-era {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+.villain-desc {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.5);
+  margin: 0.5rem 0 0;
+}
+
+@media (max-width: 768px) {
+  .villains-grid {
+    grid-template-columns: 1fr;
+  }
+  .villains-heading {
+    font-size: 2.2rem;
+  }
+}

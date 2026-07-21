@@ -1,0 +1,50 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: 'Oswald', 'Segoe UI', sans-serif;
+}
+
+#game-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow:
+    0 0 40px rgba(0, 255, 136, 0.08),
+    0 0 80px rgba(0, 0, 0, 0.9),
+    inset 0 0 80px rgba(0, 255, 136, 0.02);
+  border: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+canvas {
+  display: block;
+  width: 960px;
+  height: 540px;
+  image-rendering: auto;
+  cursor: none;
+}
+
+@media (min-width: 1400px) {
+  canvas { width: 1280px; height: 720px; }
+}
+
+@media (max-width: 800px) {
+  canvas { width: 100vw; height: 56.25vw; }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.5) 100%);
+  pointer-events: none;
+  z-index: -1;
+}

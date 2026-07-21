@@ -1,0 +1,161 @@
+.actors-section {
+  min-height: 100vh;
+  padding: 100px 2rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actors-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.actors-heading {
+  font-family: 'Bangers', cursive;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-shadow: 3px 3px 0px #7A000F, 0 0 14px rgba(192,0,26,0.65);
+  margin-bottom: 0.3rem;
+}
+
+.actors-sub {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.actors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.actor-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.actor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.actor-card-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+}
+
+.actor-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.actor-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.actor-card:hover .actor-img-wrap img {
+  transform: scale(1.05);
+}
+
+.actor-era-tag {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.actor-info {
+  position: relative;
+  padding: 1.2rem;
+}
+
+.actor-name {
+  font-family: 'Bangers', cursive;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.2rem;
+}
+
+.actor-years {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.3);
+}
+
+.actor-quote {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.6);
+  padding: 0.6rem 0 0.6rem 0.8rem;
+  border-left: 2px solid;
+  margin: 0.6rem 0;
+}
+
+.actor-desc {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 0.8rem;
+}
+
+.actor-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.actor-detail-row {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.actor-detail-label {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  color: var(--card-accent, #cc0000);
+  min-width: 65px;
+  text-transform: uppercase;
+}
+
+.actor-detail-val {
+  font-family: 'Roboto', sans-serif;
+  color: rgba(255,255,255,0.45);
+}
+
+@media (max-width: 900px) {
+  .actors-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .actors-heading {
+    font-size: 2.2rem;
+  }
+}

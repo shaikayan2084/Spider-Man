@@ -1,0 +1,127 @@
+.mission-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 76px 2rem 1rem;
+  overflow-y: auto;
+}
+
+.mission-container {
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+}
+
+.mission-line {
+  width: 200px;
+  height: 2px;
+  margin: 1rem auto;
+  background: linear-gradient(90deg, transparent, #ff0055, #0044ff, transparent);
+}
+
+.mission-heading {
+  font-family: 'Bangers', cursive;
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: #fff;
+  text-shadow: 3px 3px 0px #7A000F, 0 0 20px rgba(192,0,26,0.5);
+  margin: 0;
+}
+
+.mission-sub {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.4);
+  margin-top: 1rem;
+}
+
+.mission-quote {
+  margin: 2.5rem auto;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  max-width: 500px;
+}
+
+.mission-quote p {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+  margin: 0 0 0.8rem;
+}
+
+.mission-quote span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.mission-card {
+  padding: 1.5rem 1rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+  transition: all 0.3s ease;
+}
+
+.mission-card:hover {
+  border-color: var(--m-color);
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  transform: translateY(-4px);
+}
+
+.mission-era {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--m-color);
+  text-transform: uppercase;
+}
+
+.mission-card h3 {
+  font-family: 'Bangers', cursive;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0.5rem 0 0.3rem;
+  letter-spacing: 0.04em;
+}
+
+.mission-card p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  margin: 0;
+}
+
+.mission-credit {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.2);
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .mission-heading {
+    font-size: 2.5rem;
+  }
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+}
